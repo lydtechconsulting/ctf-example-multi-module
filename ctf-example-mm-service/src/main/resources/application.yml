@@ -1,0 +1,10 @@
+spring:
+    application:
+        name: ctf-example-mm
+
+server:
+    port: 9001
+
+ctfexamplemm:
+    thirdpartyEndpoint: https://ctf.example.com/api/thirdparty/
+    outboundTopic : "ctf-example-mm-outbound-topic"

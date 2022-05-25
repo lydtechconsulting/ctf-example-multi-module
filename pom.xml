@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>ctf-example-mm-parent</artifactId>
+    <version>1.0.0</version>
+    <name>ctf-example-mm-parent</name>
+    <description>The component-test-framework example parent</description>
+    <packaging>pom</packaging>
+
+
+    <groupId>dev.lydtech</groupId>
+
+
+    <modules>
+        <module>ctf-example-mm-service</module>
+        <module>component-test</module>
+<!--        <module>ctf-example-mm-simulator</module>-->
+    </modules>
+</project>
