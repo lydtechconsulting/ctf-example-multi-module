@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: external-service-simulator
+
+server:
+    port: 9003
+
+external:
+    context: main

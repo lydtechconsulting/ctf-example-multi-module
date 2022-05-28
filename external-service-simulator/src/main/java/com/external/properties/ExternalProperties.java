@@ -1,6 +1,5 @@
-package dev.lydtech.properties;
+package com.external.properties;
 
-import java.net.URL;
 import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
@@ -10,14 +9,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.annotation.Validated;
 
 @Configuration
-@ConfigurationProperties("ctfexamplemm")
+@ConfigurationProperties("external")
 @Getter
 @Setter
 @Validated
-public class CtfExampleProperties {
+public class ExternalProperties {
     @NotNull
-    private URL thirdPartyEndpoint;
-
-    @NotNull
-    private URL externalServiceEndpoint;
+    private String context;
 }

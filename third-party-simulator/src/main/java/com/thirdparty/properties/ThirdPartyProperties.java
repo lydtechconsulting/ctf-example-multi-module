@@ -1,4 +1,4 @@
-package dev.lydtech.properties;
+package com.thirdparty.properties;
 
 import java.net.URL;
 import javax.validation.constraints.NotNull;
@@ -10,14 +10,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.annotation.Validated;
 
 @Configuration
-@ConfigurationProperties("ctfexamplemm")
+@ConfigurationProperties("thirdparty")
 @Getter
 @Setter
 @Validated
-public class CtfExampleProperties {
+public class ThirdPartyProperties {
     @NotNull
-    private URL thirdPartyEndpoint;
-
-    @NotNull
-    private URL externalServiceEndpoint;
+    private String context;
 }

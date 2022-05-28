@@ -1,0 +1,4 @@
+---
+ctfexamplemm:
+    thirdPartyEndpoint: http://third-party-simulator:9002/v1/thirdparty/api/
+    externalServiceEndpoint: http://external-service-simulator:9003/v1/external/api/

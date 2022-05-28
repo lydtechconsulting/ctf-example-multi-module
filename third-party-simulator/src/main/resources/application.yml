@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: third-party-simulator
+
+server:
+    port: 9002
+
+thirdparty:
+    context: main

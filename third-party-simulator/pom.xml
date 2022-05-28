@@ -9,10 +9,10 @@
 		<relativePath/>
 	</parent>
 	<groupId>dev.lydtech</groupId>
-	<artifactId>ctf-example-mm-service</artifactId>
+	<artifactId>third-party-simulator</artifactId>
 	<version>1.3.0</version>
-	<name>ctf-example-mm-service</name>
-	<description>Example service that showcases the component-test-framework for component testing within a multi-module maven project</description>
+	<name>third-party-simulator</name>
+	<description>Third party simulator</description>
 	<properties>
 		<java.version>11</java.version>
 		<spring.boot.version>2.5.2</spring.boot.version>

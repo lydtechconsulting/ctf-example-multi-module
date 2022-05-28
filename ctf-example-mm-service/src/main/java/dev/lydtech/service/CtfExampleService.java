@@ -1,13 +1,10 @@
 package dev.lydtech.service;
 
-import dev.lydtech.event.CtfExampleInboundEvent;
 import dev.lydtech.exception.CtfExampleException;
-import dev.lydtech.lib.KafkaClient;
 import dev.lydtech.properties.CtfExampleProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -21,28 +18,39 @@ public class CtfExampleService {
     private CtfExampleProperties properties;
 
     @Autowired
-    private KafkaClient kafkaClient;
+    private RestTemplate restTemplate;
 
     /**
-     * Sends an outbound event in response to the received event.
+     * Calls the external services and returns their responses.
      */
-    public void process(String key, CtfExampleInboundEvent event) {
-        callSimulator(key);
-        kafkaClient.sendMessage(key, event.getData());
+    public String process(String id) {
+        String thirdPartyResult = callThirdParty(id).getBody();
+        String externalServiceResult = callExternalService(id).getBody();
+        return thirdPartyResult + "  " + externalServiceResult;
     }
 
     /**
-     * Make a REST call to a simulator.
+     * Make a REST call to the third party service.
      */
-    private void callSimulator(String key) {
-        RestTemplate restTemplate = new RestTemplate();
+    private ResponseEntity<String> callThirdParty(String id) {
         try {
-            ResponseEntity<String> response = restTemplate.getForEntity(properties.getThirdpartyEndpoint() + key, String.class);
-            if (!response.getStatusCode().equals(HttpStatus.OK)) {
-                throw new RuntimeException("Error: " + response.getStatusCode());
-            }
+            log.info("Calling third party with id {}", id);
+            return restTemplate.getForEntity(properties.getThirdPartyEndpoint() + id, String.class);
         } catch (Exception e) {
-            log.error("Error calling thirdparty API", e);
+            log.error("Error calling third party API", e);
+            throw new CtfExampleException(e);
+        }
+    }
+
+    /**
+     * Make a REST call to the external service.
+     */
+    private ResponseEntity<String> callExternalService(String id) {
+        try {
+            log.info("Calling external service with id {}", id);
+            return restTemplate.getForEntity(properties.getExternalServiceEndpoint() + id, String.class);
+        } catch (Exception e) {
+            log.error("Error calling external service API", e);
             throw new CtfExampleException(e);
         }
     }

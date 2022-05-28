@@ -6,5 +6,5 @@ server:
     port: 9001
 
 ctfexamplemm:
-    thirdpartyEndpoint: https://ctf.example.com/api/thirdparty/
-    outboundTopic : "ctf-example-mm-outbound-topic"
+    thirdPartyEndpoint: https://thirdparty.com/v1/thirdparty/api/
+    externalServiceEndpoint: https://external.com/v1/external/api/

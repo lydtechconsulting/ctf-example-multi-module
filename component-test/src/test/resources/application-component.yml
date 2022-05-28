@@ -1,6 +1,0 @@
----
-kafka:
-    bootstrap-servers: kafka:9092
-
-ctfexamplemm:
-    thirdPartyEndpoint: http://wiremock:8080/api/thirdparty/
