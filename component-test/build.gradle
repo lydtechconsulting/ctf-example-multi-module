@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+}
+
+dependencies {
+    testImplementation 'dev.lydtech:component-test-framework:1.3.0'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.10'
+}
+
+test {
+    systemProperties = System.properties
+    environment "TESTCONTAINERS_RYUK_DISABLED", System.getProperty('containers.stayup')
+    useJUnitPlatform()
+}
+
+java.sourceCompatibility = JavaVersion.VERSION_11
