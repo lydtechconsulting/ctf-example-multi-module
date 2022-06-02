@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>dev.lydtech</groupId>
 	<artifactId>third-party-simulator</artifactId>
-	<version>1.3.0</version>
+	<version>1.4.0</version>
 	<name>third-party-simulator</name>
 	<description>Third party simulator</description>
 	<properties>
