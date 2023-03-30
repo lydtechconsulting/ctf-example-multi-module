@@ -12,7 +12,7 @@ This example application exposes a REST endpoint that results in a call to two d
 
 The component tests treat the application as a black box performing end-to-end testing and proving the deployment and configuration in a local environment.
 
-Build Spring Boot application jar:
+Build Spring Boot application jar, with Java 17:
 ```
 mvn clean install
 ```
