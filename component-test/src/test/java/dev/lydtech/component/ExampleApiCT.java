@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.equalTo;
  */
 @Slf4j
 @ExtendWith(TestContainersSetupExtension.class)
-public class ExampleApiComponentTest {
+public class ExampleApiCT {
 
     @BeforeEach
     public void setup() {
