@@ -60,7 +60,7 @@ Run tests (from `component-test` directory):
 
 In the `component-test` module run:
 ```
-./gradlew clean build`
+./gradlew clean build
 ```
 
 Run tests leaving containers up:

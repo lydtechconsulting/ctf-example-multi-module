@@ -3,7 +3,7 @@ package dev.lydtech.component;
 import java.util.UUID;
 
 import dev.lydtech.component.framework.client.service.ServiceClient;
-import dev.lydtech.component.framework.extension.TestContainersSetupExtension;
+import dev.lydtech.component.framework.extension.ComponentTestExtension;
 import io.restassured.RestAssured;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,13 +17,12 @@ import static org.hamcrest.Matchers.equalTo;
  * Demonstrates the service under test calling a third party service.
  */
 @Slf4j
-@ExtendWith(TestContainersSetupExtension.class)
+@ExtendWith(ComponentTestExtension.class)
 public class ExampleApiCT {
 
     @BeforeEach
     public void setup() {
         String serviceBaseUrl = ServiceClient.getInstance().getBaseUrl();
-        log.info("Service base URL is: {}", serviceBaseUrl);
         RestAssured.baseURI = serviceBaseUrl;
     }
 
