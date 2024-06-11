@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>dev.lydtech</groupId>
 			<artifactId>component-test-framework</artifactId>
-			<version>2.6.0</version>
+			<version>3.2.0</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -57,7 +57,6 @@
 							</environmentVariables>
 							<systemPropertyVariables>
 								<service.name>ctf-example-mm-service</service.name>
-								<service.instance.count>1</service.instance.count>
 								<service.container.logging.enabled>false</service.container.logging.enabled>
 								<additional.containers>third-party-simulator,9002,5002,latest,false:external-service-simulator,9003,5003,latest,false</additional.containers>
 							</systemPropertyVariables>

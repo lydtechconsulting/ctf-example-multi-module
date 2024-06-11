@@ -2,9 +2,6 @@ spring:
     application:
         name: ctf-example-mm
 
-server:
-    port: 9001
-
 ctfexamplemm:
     thirdPartyEndpoint: https://thirdparty.com/v1/thirdparty/api/
     externalServiceEndpoint: https://external.com/v1/external/api/

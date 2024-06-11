@@ -1,3 +1,6 @@
 ---
 thirdparty:
     context: component
+
+server:
+    port: 9002
