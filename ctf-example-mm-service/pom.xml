@@ -10,11 +10,11 @@
 	</parent>
 	<groupId>dev.lydtech</groupId>
 	<artifactId>ctf-example-mm-service</artifactId>
-	<version>2.6.0</version>
+	<version>3.3.0</version>
 	<name>ctf-example-mm-service</name>
 	<description>Example service that showcases the component-test-framework for component testing within a multi-module maven project</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

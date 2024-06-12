@@ -74,3 +74,9 @@ Run tests leaving containers up:
 ```
 docker rm -f $(docker ps -aq)
 ```
+
+Further docker clean up if issues:
+```
+docker network prune
+docker system prune
+```
