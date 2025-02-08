@@ -2,9 +2,9 @@ package dev.lydtech.component;
 
 import java.util.UUID;
 
+import dev.lydtech.component.framework.client.service.AdditionalContainerClient;
 import dev.lydtech.component.framework.client.service.ServiceClient;
 import dev.lydtech.component.framework.extension.ComponentTestExtension;
-import io.restassured.RestAssured;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,10 +20,16 @@ import static org.hamcrest.Matchers.equalTo;
 @ExtendWith(ComponentTestExtension.class)
 public class ExampleApiCT {
 
+    String serviceBaseUrl;
+    String thirdPartyServiceBaseUrl;
+    String externalServiceBaseUrl;
+
     @BeforeEach
     public void setup() {
-        String serviceBaseUrl = ServiceClient.getInstance().getBaseUrl();
-        RestAssured.baseURI = serviceBaseUrl;
+        serviceBaseUrl = ServiceClient.getInstance().getBaseUrl();
+
+        thirdPartyServiceBaseUrl = AdditionalContainerClient.getInstance().getBaseUrl("third-party-simulator");
+        externalServiceBaseUrl = AdditionalContainerClient.getInstance().getBaseUrl("external-service-simulator");
     }
 
     /**
@@ -37,14 +43,44 @@ public class ExampleApiCT {
      * themselves be called successfully by the service under test.
      */
     @Test
-    public void testCallToThirdParty() {
+    public void testServiceCallsToSimulators() {
         String id = UUID.randomUUID().toString();
         log.info("Test id is: {}", id);
-        get("v1/api/"+id)
+        get(serviceBaseUrl+"/v1/api/"+id)
                 .then()
                 .assertThat()
                 .statusCode(200)
                 .and()
                 .body("value", equalTo("Third party simulator (component) called successfully with id: "+id+".  External service simulator (component) called successfully with id: "+id+"."));
+    }
+
+    /**
+     * Test a direct call to the third party simulator via REST to demonstrate this is possible.
+     */
+    @Test
+    public void testDirectCallToThirdPartyServiceSimulator() {
+        String id = UUID.randomUUID().toString();
+        log.info("Test id is: {}", id);
+        get(thirdPartyServiceBaseUrl+"/v1/thirdparty/api/"+id)
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .and()
+                .body(equalTo("Third party simulator (component) called successfully with id: "+id+"."));
+    }
+
+    /**
+     * Test a direct call to the external service simulator via REST to demonstrate this is possible.
+     */
+    @Test
+    public void testDirectCallToExternalServiceSimulator() {
+        String id = UUID.randomUUID().toString();
+        log.info("Test id is: {}", id);
+        get(externalServiceBaseUrl+"/v1/external/api/"+id)
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .and()
+                .body(equalTo("External service simulator (component) called successfully with id: "+id+"."));
     }
 }

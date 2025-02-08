@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.7.4] - 2025-01-28
+- Updated component-test-framework to 3.7.4.
+
 ## [3.3.0] - 2024-06-12
 - Updated component-test-framework to 3.3.0.
 
