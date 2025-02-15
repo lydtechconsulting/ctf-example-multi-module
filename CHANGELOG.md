@@ -1,16 +1,23 @@
 # Changelog
 
+## [3.9.0] - 2025-02-15
+### Changed
+- Updated component-test-framework to 3.9.0.
+- Define the configuration in a properties file.
+
 ## [3.7.4] - 2025-01-28
+### Changed
 - Updated component-test-framework to 3.7.4.
 
 ## [3.3.0] - 2024-06-12
+### Changed
 - Updated component-test-framework to 3.3.0.
 
 ## [2.6.0] - 2023-11-18
 ### Changed
-- Updated Testcontainers version to 1.19.2
-- Environment variable TESTCONTAINERS_REUSE_ENABLE replaces TESTCONTAINERS_RYUK_DISABLED
-- ComponentTestExtension replaces the deprecated TestContainersSetupExtension
+- Updated Testcontainers version to 1.19.2.
+- Environment variable TESTCONTAINERS_REUSE_ENABLE replaces TESTCONTAINERS_RYUK_DISABLED.
+- ComponentTestExtension replaces the deprecated TestContainersSetupExtension.
 - Updated to Spring Boot 3.1
 
 ## [2.0.0] - 2023-03-30

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>dev.lydtech</groupId>
 	<artifactId>component-test</artifactId>
-	<version>3.8.0</version>
+	<version>3.9.0</version>
 	<name>component-test</name>
 	<description>Example service that showcases the component-test-framework for component testing within a multi-module maven project</description>
 	<properties>
@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>dev.lydtech</groupId>
 			<artifactId>component-test-framework</artifactId>
-			<version>3.8.0</version>
+			<version>3.9.0</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -55,11 +55,6 @@
 							<environmentVariables>
 								<TESTCONTAINERS_REUSE_ENABLE>${containers.stayup}</TESTCONTAINERS_REUSE_ENABLE>
 							</environmentVariables>
-							<systemPropertyVariables>
-								<service.name>ctf-example-mm-service</service.name>
-								<service.container.logging.enabled>false</service.container.logging.enabled>
-								<additional.containers>third-party-simulator,9002,5002,latest,false:external-service-simulator,9003,5003,latest,false</additional.containers>
-							</systemPropertyVariables>
 						</configuration>
 					</plugin>
 				</plugins>
